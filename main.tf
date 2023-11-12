@@ -6,7 +6,7 @@ resource "aws_vpc" "main" {
   cidr_block = "172.16.0.0/16"
   instance_tenancy = "default"
   tags = {
-    Name = "main"
+    Name = "main-vpc"
   }
 }
 
@@ -56,7 +56,7 @@ resource "aws_instance" "myFirstInstance" {
 resource "aws_eip" "myFirstInstance" {
   vpc      = true
   instance = aws_instance.myFirstInstance.id
-tags= {
+  tags= {
     Name = "my_elastic_ip"
   }
 }
